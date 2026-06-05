@@ -1,0 +1,56 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven3'
+        jdk 'JDK'
+    }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/2002Umesh/VM_Test'
+            }
+        }
+
+        stage('Build & Test') {
+            steps {
+                dir('New_Test') {
+                    bat 'mvn clean test'
+                }
+            }
+        }
+
+        stage('Package') {
+            steps {
+                dir('New_Test') {
+                    bat 'mvn package'
+                }
+            }
+        }
+
+        stage('Docker Build') {
+            steps {
+                dir('Cucumber_BBD') {
+                    bat 'docker build -t cucumber-framework .'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            junit '**/target/surefire-reports/*.xml'
+        }
+
+        success {
+            echo 'Build Successful'
+        }
+
+        failure {
+            echo 'Build Failed'
+        }
+    }
+}
