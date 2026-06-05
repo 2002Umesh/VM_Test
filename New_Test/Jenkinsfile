@@ -31,13 +31,7 @@ pipeline {
             }
         }
 
-        stage('Docker Build') {
-            steps {
-                dir('Cucumber_BBD') {
-                    bat 'docker build -t cucumber-framework .'
-                }
-            }
-        }
+
     }
 
     post {
