@@ -21,25 +21,25 @@ public class StepDefinitions {
 	
 	@Before
 	public void setup() {
-//	    EdgeOptions options = new EdgeOptions();
+	    EdgeOptions options = new EdgeOptions();
+
+	    options.addArguments("--headless=new");
+	    options.addArguments("--disable-gpu");
+	    options.addArguments("--window-size=1920,1080");
+	    options.addArguments("--no-sandbox");
+	    options.addArguments("--disable-dev-shm-usage");
+	    options.addArguments("--remote-allow-origins=*");
+
+	    driver = new EdgeDriver(options);
+
+//		ChromeOptions options = new ChromeOptions();
 //
-//	    options.addArguments("--headless=new");
-//	    options.addArguments("--disable-gpu");
-//	    options.addArguments("--window-size=1920,1080");
-//	    options.addArguments("--no-sandbox");
-//	    options.addArguments("--disable-dev-shm-usage");
-//	    options.addArguments("--remote-allow-origins=*");
+//		options.addArguments("--headless=new");
+//		options.addArguments("--window-size=1920,1080");
+//		options.addArguments("--disable-dev-shm-usage");
+//		options.addArguments("--no-sandbox");
 //
-//	    driver = new EdgeDriver(options);
-
-		ChromeOptions options = new ChromeOptions();
-
-		options.addArguments("--headless=new");
-		options.addArguments("--window-size=1920,1080");
-		options.addArguments("--disable-dev-shm-usage");
-		options.addArguments("--no-sandbox");
-
-		driver = new ChromeDriver(options);
+//		driver = new ChromeDriver(options);
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 	    driver.manage().window().maximize();
 	    driver.get("http://zero.webappsecurity.com");
@@ -58,7 +58,7 @@ public class StepDefinitions {
 
 	@Given("user click on login")
 	public void user_click_on_login() {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("signin_button"))).click();
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("signin_button"))).click();
 //	    driver.findElement(By.id("signin_button")).click();
 	}
 
@@ -66,8 +66,8 @@ public class StepDefinitions {
 	public void user_enters_abcd_and_zxcvbnm(String user, String pass) {
 //	    driver.findElement(By.id("user_login")).sendKeys(user);
 //	    driver.findElement(By.id("user_password")).sendKeys(pass);
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user_login"))).click();
-	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user_password"))).click();
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user_login"))).sendKeys(user);
+	    wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("user_password"))).sendKeys(pass);
 	}
 
 	@And("user click login button")
