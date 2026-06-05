@@ -3,6 +3,7 @@ package StepDefinitions_pkg;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -13,7 +14,18 @@ public class StepDefinitions {
 	
 	@Before
 	public void setup() {
-		driver = new EdgeDriver();
+	    EdgeOptions options = new EdgeOptions();
+
+	    options.addArguments("--headless=new");
+	    options.addArguments("--disable-gpu");
+	    options.addArguments("--window-size=1920,1080");
+	    options.addArguments("--no-sandbox");
+	    options.addArguments("--disable-dev-shm-usage");
+	    options.addArguments("--remote-allow-origins=*");
+
+	    driver = new EdgeDriver(options);
+
+	    driver.manage().window().maximize();
 	    driver.get("http://zero.webappsecurity.com");
 	}
 	@After
