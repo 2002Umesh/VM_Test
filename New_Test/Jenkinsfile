@@ -34,7 +34,7 @@ stages {
     stage('Docker Build') {
         steps {
             dir('New_Test') {
-                bat 'docker build -t vm-test-framework .'
+                bat 'docker build -t cucumber-framework .'
             }
         }
     }
@@ -42,7 +42,7 @@ stages {
     stage('Docker Test') {
         steps {
             dir('New_Test') {
-                bat 'docker run --rm vm-test-framework'
+                bat 'docker run cucumber-framework'
             }
         }
     }
