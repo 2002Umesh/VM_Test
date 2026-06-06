@@ -21,16 +21,18 @@ public class StepDefinitions {
 	
 	@Before
 	public void setup() {
-		EdgeOptions options = new EdgeOptions();
+	    EdgeOptions options = new EdgeOptions();
 
-		options.addArguments("--headless");
-		options.addArguments("--disable-gpu");
-		options.addArguments("--window-size=1920,1080");
-		options.addArguments("--remote-allow-origins=*");
-		options.addArguments("--disable-dev-shm-usage");
-		options.addArguments("--user-data-dir=C:\\temp\\edge-profile");
+	    options.addArguments("--headless=new");
+	    options.addArguments("--disable-gpu");
+	    options.addArguments("--disable-dev-shm-usage");
+	    options.addArguments("--window-size=1920,1080");
 
-		driver = new EdgeDriver(options);
+	    driver = new EdgeDriver(options);
+
+	    wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+	    driver.get("http://zero.webappsecurity.com");
 
 //		ChromeOptions options = new ChromeOptions();
 //
@@ -40,9 +42,9 @@ public class StepDefinitions {
 //		options.addArguments("--no-sandbox");
 //
 //		driver = new ChromeDriver(options);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-	    driver.manage().window().maximize();
-	    driver.get("http://zero.webappsecurity.com");
+//		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//	    driver.manage().window().maximize();
+//	    driver.get("http://zero.webappsecurity.com");
 	}
 	@After
 	public void tearDown() {
