@@ -21,16 +21,16 @@ public class StepDefinitions {
 	
 	@Before
 	public void setup() {
-	    EdgeOptions options = new EdgeOptions();
+		EdgeOptions options = new EdgeOptions();
 
-	    options.addArguments("--headless=new");
-	    options.addArguments("--disable-gpu");
-	    options.addArguments("--window-size=1920,1080");
-	    options.addArguments("--no-sandbox");
-	    options.addArguments("--disable-dev-shm-usage");
-	    options.addArguments("--remote-allow-origins=*");
+		options.addArguments("--headless");
+		options.addArguments("--disable-gpu");
+		options.addArguments("--window-size=1920,1080");
+		options.addArguments("--remote-allow-origins=*");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--user-data-dir=C:\\temp\\edge-profile");
 
-	    driver = new EdgeDriver(options);
+		WebDriver driver = new EdgeDriver(options);
 
 //		ChromeOptions options = new ChromeOptions();
 //
