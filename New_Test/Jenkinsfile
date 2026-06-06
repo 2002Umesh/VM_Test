@@ -31,24 +31,18 @@ stages {
         }
     }
 
-    stage('Test') {
+    stage('Docker Build') {
         steps {
             dir('New_Test') {
-                bat 'mvn test'
-            }
-        }
-
-        post {
-            always {
-                junit 'New_Test/target/surefire-reports/*.xml'
+                bat 'docker build -t vm-test-framework .'
             }
         }
     }
 
-    stage('Package') {
+    stage('Docker Test') {
         steps {
             dir('New_Test') {
-                bat 'mvn package'
+                bat 'docker run --rm vm-test-framework'
             }
         }
     }
