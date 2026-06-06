@@ -30,7 +30,7 @@ public class StepDefinitions {
 		options.addArguments("--disable-dev-shm-usage");
 		options.addArguments("--user-data-dir=C:\\temp\\edge-profile");
 
-		WebDriver driver = new EdgeDriver(options);
+		driver = new EdgeDriver(options);
 
 //		ChromeOptions options = new ChromeOptions();
 //
