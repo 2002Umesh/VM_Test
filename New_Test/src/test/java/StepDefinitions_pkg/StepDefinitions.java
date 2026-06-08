@@ -21,12 +21,13 @@ public class StepDefinitions {
 	
 	@Before
 	public void setup() {
-	    EdgeOptions options = new EdgeOptions();
+		EdgeOptions options = new EdgeOptions();
 
-	    options.addArguments("--headless=new");
-	    options.addArguments("--disable-gpu");
-	    options.addArguments("--disable-dev-shm-usage");
-	    options.addArguments("--window-size=1920,1080");
+		options.addArguments("--headless=new");
+		options.addArguments("--no-sandbox");
+		options.addArguments("--disable-dev-shm-usage");
+		options.addArguments("--disable-gpu");
+		options.addArguments("--window-size=1920,1080");
 
 	    driver = new EdgeDriver(options);
 
