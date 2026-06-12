@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="1" passed="0" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-12T17:30:06 IST" name="Suite" finished-at="2026-06-12T17:30:06 IST" duration-ms="17">
+  <suite started-at="2026-06-12T19:04:25 IST" name="Default suite" finished-at="2026-06-12T19:04:30 IST" duration-ms="5279">
     <groups>
     </groups>
-    <test started-at="2026-06-12T17:30:06 IST" name="Test" finished-at="2026-06-12T17:30:06 IST" duration-ms="17">
-    </test> <!-- Test -->
-  </suite> <!-- Suite -->
+    <test started-at="2026-06-12T19:04:25 IST" name="Default test" finished-at="2026-06-12T19:04:30 IST" duration-ms="5279">
+      <class name="tests.CheckoutTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.CheckoutTest@4218d6a3]" started-at="2026-06-12T19:04:25 IST" name="setUp" finished-at="2026-06-12T19:04:27 IST" duration-ms="2463" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="checkout(java.lang.String)[pri:4, instance:tests.CheckoutTest@4218d6a3]" started-at="2026-06-12T19:04:27 IST" name="checkout" data-provider="CheckoutData" finished-at="2026-06-12T19:04:30 IST" duration-ms="2494" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[macbook]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkout -->
+        <test-method is-config="true" signature="quitDriver()[pri:0, instance:tests.CheckoutTest@4218d6a3]" started-at="2026-06-12T19:04:30 IST" name="quitDriver" finished-at="2026-06-12T19:04:30 IST" duration-ms="256" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quitDriver -->
+      </class> <!-- tests.CheckoutTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

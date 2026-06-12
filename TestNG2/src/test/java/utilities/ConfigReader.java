@@ -1,17 +1,18 @@
 package utilities;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 public class ConfigReader {
-	Properties prop;
+	private Properties prop;
 	
-	public ConfigReader() {
+	public ConfigReader(){
 		prop = new Properties();
 		try {
-			FileInputStream fis = new FileInputStream("src/test/resources/config.properties");
+			FileInputStream fis = new FileInputStream("src/test/resources/config/config.properties");
 			prop.load(fis);
-		} catch (Exception e) {
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}

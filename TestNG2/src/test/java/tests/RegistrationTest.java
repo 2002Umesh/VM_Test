@@ -6,14 +6,13 @@ import base.BaseDriver;
 import dataproviders.TestDataProviders;
 import pages.RegistrationPage;
 
-public class RegistrationTest extends BaseDriver{
-	@Test(priority = 1, enabled = false, dataProvider = "RegistrationData",dataProviderClass = TestDataProviders.class)
+public class RegistrationTest extends BaseDriver {
+	@Test(priority = 1, enabled = true, dataProvider = "RegistrationData", dataProviderClass = TestDataProviders.class)
 	public void registration(String fname, String lname, String email, String phone, String password)
 			throws InterruptedException {
 		RegistrationPage pompages = new RegistrationPage();
 
 		pompages.registration(fname, lname, email, phone, password);
-
 
 	}
 }

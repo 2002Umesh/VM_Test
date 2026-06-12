@@ -7,19 +7,19 @@ import base.DriverFactory;
 import utilities.WaitUtil;
 
 public class RegistrationPage {
-	
+
 	WebDriver driver = DriverFactory.getDriver();
-	
-	public void registration(String fname,String lname,String email,String phone,String password) {
-		
-		
-		
+	By account = By.cssSelector("a[title='My Account']");
+
+	public void registration(String fname, String lname, String email, String phone, String password) {
+
+		WaitUtil.waitForClickable(driver, account).click();
+		WaitUtil.waitForClickable(driver, By.xpath("//*[@id='top-links']/ul/li[2]/ul/li[1]")).click();
 		WaitUtil.waitForVisible(driver, By.id("input-firstname")).sendKeys(fname);
 
-	
 		WaitUtil.waitForVisible(driver, By.id("input-lastname")).sendKeys(lname);
 
-		WaitUtil.waitForVisible(driver,By.id("input-email")).sendKeys(email);
+		WaitUtil.waitForVisible(driver, By.id("input-email")).sendKeys(email);
 
 		WaitUtil.waitForVisible(driver, By.id("input-telephone")).sendKeys(phone);
 
@@ -32,13 +32,7 @@ public class RegistrationPage {
 		WaitUtil.waitForClickable(driver, By.cssSelector("input[value='Continue']")).click();
 
 		WaitUtil.waitForClickable(driver, By.xpath("//*[@id='content']/div/div/a")).click();
-				
-		
-	}
-	
-	
 
-	
-	
+	}
 
 }
