@@ -1,4 +1,19 @@
 # VM_Test
+
+
+
+
+
+
+
+<configuration>
+	<suiteXmlFiles>
+		<suiteXmlFile>testng.xml</suiteXmlFile>
+	</suiteXmlFiles>
+</configuration>
+
+
+
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
